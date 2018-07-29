@@ -1,0 +1,21 @@
+{
+    "name": "bmatovu/conversions",
+    "description": "Native data type conversions",
+    "type": "library",
+    "require": {
+        "php": ">=5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "bmatovu",
+            "email": "mtvbrianking@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bmatovu\\Conversion\\": "src/"
+        }
+    }
+    "minimum-stability": "dev"
+}
