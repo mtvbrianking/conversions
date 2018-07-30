@@ -2,7 +2,7 @@
 
 /**
  * DQSEGDB - Convert segdb-format data to DQSEGDB.
- * @link https://github.com/ligovirgo/dqsegdb/blob/master/server/db/db_utils/segdb_to_dqsegdb_auto_converter/src/classes/TimeConversion.php Source
+ * @link https://github.com/ligovirgo/dqsegdb/blob/master/server/db/db_utils/segdb_to_dqsegdb_auto_converter/src/classes/Time.php Source
  * @link https://www.andrews.edu/~tzs/timeconv/timealgorithm.html Algorithm
  */
 
@@ -50,7 +50,7 @@ class Time
     private static function isleap($gpsTime)
     {
         $isLeap = FALSE;
-        $leaps = TimeConversion::getleaps();
+        $leaps = Time::getleaps();
         $lenLeaps = count($leaps);
         for ($i = 0; $i < $lenLeaps; $i++) {
             if ($gpsTime == $leaps[$i]) {
@@ -68,7 +68,7 @@ class Time
      */
     private static function countleaps($gpsTime, $dirFlag)
     {
-        $leaps = TimeConversion::getleaps();
+        $leaps = Time::getleaps();
         $lenLeaps = count($leaps);
         $nleaps = 0;  // number of leap seconds prior to gpsTime
         for ($i = 0; $i < $lenLeaps; $i++) {
@@ -96,9 +96,9 @@ class Time
     {
         // Add offset in seconds
         $unixTime = $gpsTime + 315964800;
-        $nleaps = TimeConversion::countleaps($gpsTime, 'gps2unix');
+        $nleaps = Time::countleaps($gpsTime, 'gps2unix');
         $unixTime = $unixTime - $nleaps;
-        if (TimeConversion::isleap($gpsTime)) {
+        if (Time::isleap($gpsTime)) {
             $unixTime = $unixTime + 0.5;
         }
         return $unixTime;
@@ -119,7 +119,7 @@ class Time
             $isLeap = 0;
         }
         $gpsTime = $unixTime - 315964800;
-        $nleaps = TimeConversion::countleaps($gpsTime, 'unix2gps');
+        $nleaps = Time::countleaps($gpsTime, 'unix2gps');
         $gpsTime = $gpsTime + $nleaps + $isLeap;
         return $gpsTime;
     }

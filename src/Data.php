@@ -34,7 +34,7 @@ class Data
     /**
      * Convert Bytes to ASCII Characters
      * @param string $bytes Hex bytes of valid ASCII characters: [0x00 to 0x7F]
-     * @see DataConversion::charsToBytes() Converting Chars to Bytes
+     * @see Data::charsToBytes() Converting Chars to Bytes
      * @return string ASCII Characters
      */
     public static function bytesToChars($bytes)
@@ -45,7 +45,7 @@ class Data
     /**
      * Convert ASCII Characters to Bytes
      * @param string $chars ASCII characters
-     * @see DataConversion::bytesToChars() Converting Bytes to Chars
+     * @see Data::bytesToChars() Converting Bytes to Chars
      * @return string ASCII Characters, Printable range: [0x20 to 0x7E]
      */
     public static function charsToBytes($chars)
@@ -60,7 +60,7 @@ class Data
      * @param bool|true $signedness Integer signedness, default true
      * @var bool Signedness => True (Signed)
      * @var bool Signedness => False (Unsigned)
-     * @see DataConversion::int8ToByte() Converting INT8 to BYTE
+     * @see Data::int8ToByte() Converting INT8 to BYTE
      * @return int INT16
      */
     public static function byteToInt8($byte, $signedness = true)
@@ -83,7 +83,7 @@ class Data
     /**
      * Convert INT8 to BYTE
      * @param int $int8 INT8 Range: (-127 to 255)
-     * @see DataConversion::byteToInt8() Converting BYTE to INT8
+     * @see Data::byteToInt8() Converting BYTE to INT8
      * @return bool|string BYTE or false if integer provided is out of range
      */
     public static function int8ToByte($int8)
@@ -110,7 +110,7 @@ class Data
      * @param bool|true $signed Integer signedness, default true
      * @var bool $signed => True (Signed)
      * @var bool $signed => False (Unsigned)
-     * @see DataConversion::int16ToWord() Converting INT16 to WORD
+     * @see Data::int16ToWord() Converting INT16 to WORD
      * @return bool|int INT16 or false if invalid, or non supported endianness is given
      */
     public static function wordToInt16($word, $endianness = 1, $signed = true)
@@ -146,7 +146,7 @@ class Data
      * @var int Endianness => 2 (Mid-Big Endian) *Not supported
      * @var int Endianness => 3 (Little Endian)
      * @var int Endianness => 4 (Mid-Little Endian) *Not supported
-     * @see DataConversion::dwordToInt32() Converting WORD to INT16
+     * @see Data::dwordToInt32() Converting WORD to INT16
      * @return bool|string WORD or false if invalid, or non supported endianness is given
      */
     public static function int16ToWord($int16, $endianness = 1)
@@ -180,7 +180,7 @@ class Data
      * @param bool|true $signedness Integer signedness, default true
      * @var bool Signedness => True (Signed)
      * @var bool Signedness => False (Unsigned)
-     * @see DataConversion::int32ToDword() Converting INT32 to DWORD
+     * @see Data::int32ToDword() Converting INT32 to DWORD
      * @return int INT32
      */
     public static function dwordToInt32($dword, $endianness = 1, $signedness = true)
@@ -230,7 +230,7 @@ class Data
      * @var int Endianness => 2 (Mid-Big Endian)
      * @var int Endianness => 3 (Little Endian)
      * @var int Endianness => 4 (Mid-Little Endian)
-     * @see DataConversion::dwordToInt32() Converting DWORD to INT32
+     * @see Data::dwordToInt32() Converting DWORD to INT32
      * @return bool|string DWORD or false if invalid endianness is given
      */
     public static function int32ToDword($int32, $endianness = 1)
