@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * Time.php
  * DQSEGDB - Convert segdb-format data to DQSEGDB.
  * @link https://github.com/ligovirgo/dqsegdb/blob/master/server/db/db_utils/segdb_to_dqsegdb_auto_converter/src/classes/Time.php Source
  * @link https://www.andrews.edu/~tzs/timeconv/timealgorithm.html Algorithm

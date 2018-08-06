@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Data.php
  */
 
 namespace Bmatovu\Conversion;
@@ -31,28 +31,15 @@ namespace Bmatovu\Conversion;
 class Data
 {
 
-    /**
-     * Convert Bytes to ASCII Characters
-     * @param string $bytes Hex bytes of valid ASCII characters: [0x00 to 0x7F]
-     * @see Data::charsToBytes() Converting Chars to Bytes
-     * @return string ASCII Characters
-     */
-    public static function bytesToChars($bytes)
-    {
-        return pack('H*', $bytes);
-    }
+    // Signedness
+    const SIGNED = 1;
+    const UNSIGNED = 0;
 
-    /**
-     * Convert ASCII Characters to Bytes
-     * @param string $chars ASCII characters
-     * @see Data::bytesToChars() Converting Bytes to Chars
-     * @return string ASCII Characters, Printable range: [0x20 to 0x7E]
-     */
-    public static function charsToBytes($chars)
-    {
-        $bytes = unpack('H*', $chars);
-        return $bytes[1];
-    }
+    // Endianness
+    const BIG_ENDIAN = 1;
+    const MID_BIG_ENDIAN = 2;
+    const LITTLE_ENDIAN = 3;
+    const MID_LITTLE_ENDIAN = 4;
 
     /**
      * Convert BYTE to INT8
@@ -115,6 +102,7 @@ class Data
      */
     public static function wordToInt16($word, $endianness = 1, $signed = true)
     {
+
         # unpack hex str to raw bytes
         $bin = pack("H*", $word);
         $raw = unpack("c*", $bin);
