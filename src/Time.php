@@ -3,6 +3,7 @@
 /**
  * Time.php
  * DQSEGDB - Convert segdb-format data to DQSEGDB.
+ *
  * @link https://github.com/ligovirgo/dqsegdb/blob/master/server/db/db_utils/segdb_to_dqsegdb_auto_converter/src/classes/Time.php Source
  * @link https://www.andrews.edu/~tzs/timeconv/timealgorithm.html Algorithm
  */
@@ -10,19 +11,18 @@
 namespace Bmatovu\Conversion;
 
 /**
- * Class Time
- * @package Bmatovu\Conversion
+ * Class Time.
  */
 class Time
 {
-
     /**
-     * Define GPS leap seconds
+     * Define GPS leap seconds.
+     *
      * @return array
      */
     private static function getleaps()
     {
-        $leaps = array(
+        $leaps = [
             46828800,
             78364801,
             109900802,
@@ -38,38 +38,44 @@ class Time
             599184012,
             820108813,
             914803214,
-            1025136015
-        );
+            1025136015,
+        ];
+
         return $leaps;
     }
 
     /**
-     * Test to see if a GPS second is a leap second
+     * Test to see if a GPS second is a leap second.
+     *
      * @param $gpsTime
+     *
      * @return bool
      */
     private static function isleap($gpsTime)
     {
-        $isLeap = FALSE;
-        $leaps = Time::getleaps();
+        $isLeap = false;
+        $leaps = self::getleaps();
         $lenLeaps = count($leaps);
         for ($i = 0; $i < $lenLeaps; $i++) {
             if ($gpsTime == $leaps[$i]) {
-                $isLeap = TRUE;
+                $isLeap = true;
             }
         }
+
         return $isLeap;
     }
 
     /**
-     * Count number of leap seconds that have passed
+     * Count number of leap seconds that have passed.
+     *
      * @param $gpsTime
      * @param $dirFlag
+     *
      * @return int
      */
     private static function countleaps($gpsTime, $dirFlag)
     {
-        $leaps = Time::getleaps();
+        $leaps = self::getleaps();
         $lenLeaps = count($leaps);
         $nleaps = 0; // number of leap seconds prior to gpsTime
         for ($i = 0; $i < $lenLeaps; $i++) {
@@ -82,32 +88,38 @@ class Time
                     $nleaps++;
                 }
             } else {
-                echo "ERROR Invalid Flag!";
+                echo 'ERROR Invalid Flag!';
             }
         }
+
         return $nleaps;
     }
 
     /**
-     * Convert GPS Time to Unix Time
+     * Convert GPS Time to Unix Time.
+     *
      * @param $gpsTime
+     *
      * @return mixed
      */
     public static function gps2unix($gpsTime)
     {
         // Add offset in seconds
         $unixTime = $gpsTime + 315964800;
-        $nleaps = Time::countleaps($gpsTime, 'gps2unix');
+        $nleaps = self::countleaps($gpsTime, 'gps2unix');
         $unixTime = $unixTime - $nleaps;
-        if (Time::isleap($gpsTime)) {
+        if (self::isleap($gpsTime)) {
             $unixTime = $unixTime + 0.5;
         }
+
         return $unixTime;
     }
 
     /**
-     * Convert Unix Time to GPS Time
+     * Convert Unix Time to GPS Time.
+     *
      * @param $unixTime
+     *
      * @return mixed
      */
     public static function unix2gps($unixTime)
@@ -120,9 +132,9 @@ class Time
             $isLeap = 0;
         }
         $gpsTime = $unixTime - 315964800;
-        $nleaps = Time::countleaps($gpsTime, 'unix2gps');
+        $nleaps = self::countleaps($gpsTime, 'unix2gps');
         $gpsTime = $gpsTime + $nleaps + $isLeap;
+
         return $gpsTime;
     }
-
 }
