@@ -27,7 +27,6 @@ namespace Bmatovu\Conversion;
  */
 class Data
 {
-
     // Signedness
     const SIGNED = 1;
     const UNSIGNED = 0;
@@ -41,8 +40,8 @@ class Data
     /**
      * Convert BYTE to INT8.
      *
-     * @param string $byte BYTE
-     * @param int $signedness Signedness, default 1
+     * @param string $byte       BYTE
+     * @param int    $signedness Signedness, default 1
      *
      * @var int Signedness => 1 (Signed)
      * @var int Signedness => 0 (Unsigned)
@@ -94,8 +93,8 @@ class Data
     /**
      * Convert WORD to INT16.
      *
-     * @param string $word WORD (2 bytes)
-     * @param int $endianness Machine Byte Order, default 1
+     * @param string $word       WORD (2 bytes)
+     * @param int    $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
      * @var int Endianness => 2 (Mid-Big Endian) *Not supported
@@ -140,7 +139,7 @@ class Data
     /**
      * Convert INT16 to WORD (2 bytes).
      *
-     * @param int $int16 INT16 Range: (-32768 to 65535)
+     * @param int $int16      INT16 Range: (-32768 to 65535)
      * @param int $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
@@ -175,8 +174,8 @@ class Data
     /**
      * Convert DWORD to INT32.
      *
-     * @param string $dword DWORD (4 bytes)
-     * @param int $endianness Machine Byte Order, default 1
+     * @param string $dword      DWORD (4 bytes)
+     * @param int    $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
      * @var int Endianness => 2 (Mid-Big Endian)
@@ -234,7 +233,7 @@ class Data
     /**
      * Convert INT32 to DWORD (4 bytes).
      *
-     * @param int $int32 INT32 Range: (-2147483648 to 4294967295)
+     * @param int $int32      INT32 Range: (-2147483648 to 4294967295)
      * @param int $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
