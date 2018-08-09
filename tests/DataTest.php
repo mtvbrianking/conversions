@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class DataTest extends TestCase
 {
-
     /**
      * @group uint8
      */
@@ -139,5 +138,4 @@ class DataTest extends TestCase
         $dword = Data::int32ToDword(4294967295);
         $this->assertEquals('ffffffff', $dword);
     }
-
 }
