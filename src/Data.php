@@ -45,12 +45,12 @@ class Data
      * Convert BYTE to INT8
      * @param string $byte BYTE
      * @param bool|true $signedness Integer signedness, default true
-     * @var bool Signedness => True (Signed)
-     * @var bool Signedness => False (Unsigned)
+     * @var int Signedness => 1 (Signed)
+     * @var int Signedness => 0 (Unsigned)
      * @see Data::int8ToByte() Converting INT8 to BYTE
      * @return int INT16
      */
-    public static function byteToInt8($byte, $signedness = true)
+    public static function byteToInt8($byte, $signedness = 1)
     {
         # Pack byte into raw
         $raw = pack("H*", $byte);
@@ -95,12 +95,12 @@ class Data
      * @var int Endianness => 3 (Little Endian)
      * @var int Endianness => 4 (Mid-Little Endian) *Not supported
      * @param bool|true $signed Integer signedness, default true
-     * @var bool $signed => True (Signed)
-     * @var bool $signed => False (Unsigned)
+     * @var int $signedness => 1 (Signed)
+     * @var int $signedness => 0 (Unsigned)
      * @see Data::int16ToWord() Converting INT16 to WORD
      * @return bool|int INT16 or false if invalid, or non supported endianness is given
      */
-    public static function wordToInt16($word, $endianness = 1, $signed = true)
+    public static function wordToInt16($word, $endianness = 1, $signedness = 1)
     {
 
         # unpack hex str to raw bytes
@@ -119,7 +119,7 @@ class Data
         }
 
         $int16 = $msb + $lsb;
-        if ($signed && $int16 & 0x8000) {
+        if ($signedness && $int16 & 0x8000) {
             return -(($int16 ^ 0xFFFF) + 1);
         }
 
@@ -171,8 +171,10 @@ class Data
      * @see Data::int32ToDword() Converting INT32 to DWORD
      * @return int INT32
      */
-    public static function dwordToInt32($dword, $endianness = 1, $signedness = true)
+    public static function dwordToInt32($dword, $endianness = 1, $signedness = 1)
     {
+        print('endianness: '.$endianness);
+
         # unpack hex str to raw bytes
         $bin = pack("H*", $dword);
         $raw = unpack("c*", $bin);
