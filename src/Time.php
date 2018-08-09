@@ -4,7 +4,7 @@
  * Time.php
  * DQSEGDB - Convert segdb-format data to DQSEGDB.
  *
- * @link https://github.com/ligovirgo/dqsegdb/blob/master/server/db/db_utils/segdb_to_dqsegdb_auto_converter/src/classes/Time.php Source
+ * @link https://github.com/ligovirgo/dqsegdb/blob/master/server/db/db_utils/segdb_to_dqsegdb_auto_converter/src/classes/TimeConversion.php Source
  * @link https://www.andrews.edu/~tzs/timeconv/timealgorithm.html Algorithm
  */
 
@@ -45,9 +45,9 @@ class Time
     }
 
     /**
-     * Test to see if a GPS second is a leap second.
+     * If a GPS second is a leap second.
      *
-     * @param $gpsTime
+     * @param int $gpsTime GPS Time
      *
      * @return bool
      */
@@ -68,8 +68,8 @@ class Time
     /**
      * Count number of leap seconds that have passed.
      *
-     * @param $gpsTime
-     * @param $dirFlag
+     * @param int $gpsTime GPS Time
+     * @param string $dirFlag ??
      *
      * @return int
      */
@@ -98,7 +98,7 @@ class Time
     /**
      * Convert GPS Time to Unix Time.
      *
-     * @param $gpsTime
+     * @param int $gpsTime GPS Time
      *
      * @return mixed
      */
@@ -118,7 +118,7 @@ class Time
     /**
      * Convert Unix Time to GPS Time.
      *
-     * @param $unixTime
+     * @param int $unixTime Unix Time
      *
      * @return mixed
      */

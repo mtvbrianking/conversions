@@ -27,6 +27,7 @@ namespace Bmatovu\Conversion;
  */
 class Data
 {
+
     // Signedness
     const SIGNED = 1;
     const UNSIGNED = 0;
@@ -40,15 +41,15 @@ class Data
     /**
      * Convert BYTE to INT8.
      *
-     * @param string    $byte       BYTE
-     * @param bool|true $signedness Integer signedness, default true
+     * @param string $byte BYTE
+     * @param int $signedness Signedness, default 1
      *
      * @var int Signedness => 1 (Signed)
      * @var int Signedness => 0 (Unsigned)
      *
      * @see Data::int8ToByte() Converting INT8 to BYTE
      *
-     * @return int INT16
+     * @return int INT8
      */
     public static function byteToInt8($byte, $signedness = 1)
     {
@@ -93,18 +94,18 @@ class Data
     /**
      * Convert WORD to INT16.
      *
-     * @param string $word       WORD (2 bytes)
-     * @param int    $endianness Machine Byte Order, default 1
+     * @param string $word WORD (2 bytes)
+     * @param int $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
      * @var int Endianness => 2 (Mid-Big Endian) *Not supported
      * @var int Endianness => 3 (Little Endian)
      * @var int Endianness => 4 (Mid-Little Endian) *Not supported
      *
-     * @param bool|true $signed Integer signedness, default true
+     * @param int $signedness Signedness, default 1
      *
-     * @var int $signedness => 1 (Signed)
-     * @var int $signedness => 0 (Unsigned)
+     * @var int Signedness => 1 (Signed)
+     * @var int Signedness => 0 (Unsigned)
      *
      * @see Data::int16ToWord() Converting INT16 to WORD
      *
@@ -139,7 +140,7 @@ class Data
     /**
      * Convert INT16 to WORD (2 bytes).
      *
-     * @param int $int16      INT16 Range: (-32768 to 65535)
+     * @param int $int16 INT16 Range: (-32768 to 65535)
      * @param int $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
@@ -174,18 +175,18 @@ class Data
     /**
      * Convert DWORD to INT32.
      *
-     * @param string $dword      DWORD (4 bytes)
-     * @param int    $endianness Machine Byte Order, default 1
+     * @param string $dword DWORD (4 bytes)
+     * @param int $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
      * @var int Endianness => 2 (Mid-Big Endian)
      * @var int Endianness => 3 (Little Endian)
      * @var int Endianness => 4 (Mid-Little Endian)
      *
-     * @param bool|true $signedness Integer signedness, default true
+     * @param int $signedness signedness, default 1
      *
-     * @var bool Signedness => True (Signed)
-     * @var bool Signedness => False (Unsigned)
+     * @var int Signedness => 1 (Signed)
+     * @var int Signedness => 0 (Unsigned)
      *
      * @see Data::int32ToDword() Converting INT32 to DWORD
      *
@@ -233,7 +234,7 @@ class Data
     /**
      * Convert INT32 to DWORD (4 bytes).
      *
-     * @param int $int32      INT32 Range: (-2147483648 to 4294967295)
+     * @param int $int32 INT32 Range: (-2147483648 to 4294967295)
      * @param int $endianness Machine Byte Order, default 1
      *
      * @var int Endianness => 1 (Big Endian)
