@@ -60,8 +60,9 @@ class Data
 
         # Determine 2's complement
         if ($signedness && $int8 >= 0x80) {
-            if (0x80 & $int8)
+            if (0x80 & $int8){
                 return -(($int8 ^ 0xFF) + 1);
+            }
         }
 
         return $int8;
@@ -173,8 +174,6 @@ class Data
      */
     public static function dwordToInt32($dword, $endianness = 1, $signedness = 1)
     {
-        print('endianness: '.$endianness);
-
         # unpack hex str to raw bytes
         $bin = pack("H*", $dword);
         $raw = unpack("c*", $bin);

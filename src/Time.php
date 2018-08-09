@@ -71,7 +71,7 @@ class Time
     {
         $leaps = Time::getleaps();
         $lenLeaps = count($leaps);
-        $nleaps = 0;  // number of leap seconds prior to gpsTime
+        $nleaps = 0; // number of leap seconds prior to gpsTime
         for ($i = 0; $i < $lenLeaps; $i++) {
             if (!strcmp('unix2gps', $dirFlag)) {
                 if ($gpsTime >= $leaps[$i] - $i) {
