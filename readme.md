@@ -6,6 +6,7 @@
 [![License](https://poser.pugx.org/bmatovu/conversions/license)](https://packagist.org/packages/bmatovu/multi-auth)
 [![Build Status](https://travis-ci.org/mtvbrianking/conversions.svg?branch=master)](https://travis-ci.org/mtvbrianking/conversions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mtvbrianking/conversions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mtvbrianking/conversions/?branch=master)
+[![StyleCI](https://github.styleci.io/repos/142790092/shield?branch=master)](https://github.styleci.io/repos/142790092)
 
 **[Install](https://packagist.org/packages/bmatovu/conversions)**
 
