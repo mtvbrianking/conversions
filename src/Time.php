@@ -68,7 +68,7 @@ class Time
     /**
      * Count number of leap seconds that have passed.
      *
-     * @param int $gpsTime GPS Time
+     * @param int    $gpsTime GPS Time
      * @param string $dirFlag ??
      *
      * @return int
